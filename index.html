@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>Fornais</title>
+<meta name=description content="Fornais - Ve la tienda sin estar en el juego, noticias, alertas y más.">
+<meta name=keywords content="Fortnite, tienda, noticias, actualizaciones, tracker, mapa, stw, misiones">
+<link href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css rel=stylesheet>
+<link rel=stylesheet href=styles.min.css>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css>
+<link rel=icon type=image/x-icon href=favicon.ico>
+</head>
+<body>
+<div class=container>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class=navbar-brand href=https://fornais.netlify.app/>Fornais</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarNav aria-controls=navbarNav aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse" id=navbarNav>
+<ul class="navbar-nav mr-auto">
+<li class=nav-item>
+<a class=nav-link href=https://fornais.netlify.app id=br-shop-btn>Tienda</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=# id=news-events-btn>Noticias</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=# id=map-btn>Mapa</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=# id=player-search-btn>Tracker</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=# id=mission-stw-btn>Misiones STW</a>
+</li>
+</ul>
+<form class="form-inline my-2 my-lg-0">
+<input class="form-control mr-sm-2" type=search placeholder=Buscar... aria-label=Search id=search-bar oninput=showSuggestions(this.value) autocomplete=off>
+<ul id=suggestions-list class="list-group position-absolute"></ul>
+</form>
+</div>
+</nav>
+<div class="alert alert-primary alert-dismissible fade show" role="alert" id="shop-alert">
+  <strong>Corrección</strong> Se ha arreglado la carga de la tienda.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div id=shop-info class="text-center my-4">
+<p id=shop-date></p>
+<p id=countdown></p>
+</div>
+<div id=content class="content row justify-content-center"></div>
+<button id=scroll-to-top-btn class=scroll-to-top onclick=scrollToTop()>↑</button>
+<footer class="text-center py-4">
+<p>© 2024 B4sal. Fortnite es una marca registrada de Epic Games. Este es un sitio personal y no está afiliado ni respaldado por Epic Games.</p>
+<a href=privacy-policy.html class="btn btn-primary">Política de Privacidad</a>
+</footer>
+</div>
+<script src=https://code.jquery.com/jquery-3.5.1.slim.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js></script>
+<script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
+<script src=script.min.js></script>
+<script>
+  setTimeout(() => {
+    const alert = document.getElementById('shop-alert');
+    if (alert) {
+      alert.classList.remove('show');
+      alert.classList.add('fade');
+      setTimeout(() => alert.remove(), 500);
+    }
+  }, 5000);
+</script>
+</body>
+</html>
